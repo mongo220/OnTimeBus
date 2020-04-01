@@ -10,7 +10,26 @@ export const SafeAreaView = styled.SafeAreaView`
     color: #FF0000;
     background-color : #48126a;
 `;
+
 export const View = styled.View`
     margin-top: 40px;
-
 `;
+
+export const DIcon = styled.View`
+    margin-left: -300px;
+    margin-top: 10px;
+`;
+
+//#endregion
+
+//#region Texts
+export const Title = styled.Text`
+    font-family: Roboto;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -30px;
+    margin-left: 35%;
+`;
+
+//#endregion

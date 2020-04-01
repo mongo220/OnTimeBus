@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { withNavigation } from 'react-navigation';
-import {Text} from 'react-native';
+import { Icon } from 'react-native-elements'
+import {Text,TouchableOpacity} from 'react-native';
 
 import {
   SafeAreaView,
-  View
-
+  View,
+  DIcon,
+  Title
 } from './styles';
 
-function Header({ navigation }) {
-   
+export default function Header({ navigation }) {
+  
+  function Voltar(){
+    console.log('Voltar')
+    navigation.navigate('Login');
+  }
+  console.log(navigation);
   useEffect(() => {
 
   }, []);
@@ -17,12 +23,18 @@ function Header({ navigation }) {
   return (
     <SafeAreaView>
       <View>
-        
-        <Text>Header2</Text>   
+        <DIcon>  
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>   
+            <Icon
+              name='bars'
+              type='font-awesome'
+              color='#fff'
+              size={32}
+            />
+            </TouchableOpacity>
+          </DIcon>
+          <Title>OnTime Bus</Title>
       </View>
     </SafeAreaView>
   )
-}
-
-
-export default withNavigation(Header);
+};
