@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-
 import {Text,View} from 'react-native';
+import { Icon } from 'react-native-elements'
+
+
 import Header from '../../components/Header';
+import NextBus from '../../components/NextBus';
 
 import {
   Mapa,
-  Lines
+  Map,
+  Lines,
+  FindBar,
+  TextInput,
+  Find
 } from './styles';
 
 
@@ -18,11 +25,29 @@ export default function Home({ navigation }) {
   return (
     <View>
       <Header navigation={navigation}/>
+      <FindBar>
+        <Icon  
+            name='search'
+            type='font-awesome'
+            color='#48126a'
+            size={20}>
+        </Icon>
+       <TextInput placeholder={'Vamos para onde ?'}/>
+      </FindBar>
      <Mapa>
-       <Text>Mapa com pontos proximos</Text>
+       <Map source={require('../../assets/maps.png')}/>
+       <Find>
+       <Icon  
+            name='crosshairs'
+            type='font-awesome'
+            color='#FFF'
+            size={33}>
+        </Icon>
+       
+       </Find>
      </Mapa>
     <Lines>
-      <Text>Linhas proxímas</Text>
+    <NextBus/>
     </Lines>
     </View>
   );
