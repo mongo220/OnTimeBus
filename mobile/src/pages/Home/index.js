@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import {Text,View} from 'react-native';
-import { Icon } from 'react-native-elements'
-
+import {Text,View,StyleSheet} from 'react-native';
+import { Icon } from 'react-native-elements';
+import MapView, { Marker,Callout } from 'react-native-maps'
+import {requestPermissionsAsync, getCurrentPositionAsync} from 'expo-location';
 
 import Header from '../../components/Header';
 import NextBus from '../../components/NextBus';
 
 import {
   Mapa,
-  Map,
   Lines,
   FindBar,
   TextInput,
@@ -17,10 +17,36 @@ import {
 
 
 export default function Home({ navigation }) {
-  console.log(navigation);
+
+  const [currentRegion,setCurrentRegion] = useState(null);
+
   useEffect(() => {
+
+    async function loadInitialPosition(){
+      const { granted } = await requestPermissionsAsync();
+
+      if(granted){
+          const { coords } = await getCurrentPositionAsync({
+              enableHighAccuracy: true,
+          });
+
+          const { latitude, longitude } = coords;
+
+          setCurrentRegion({
+              latitude,
+              longitude,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+          })
+      }
+  }
+  
+    loadInitialPosition();
   }, []);
 
+
+  if(!currentRegion)
+    return null;
 
   return (
     <View>
@@ -35,7 +61,8 @@ export default function Home({ navigation }) {
        <TextInput placeholder={'Vamos para onde ?'}/>
       </FindBar>
      <Mapa>
-       <Map source={require('../../assets/maps.png')}/>
+        <MapView initialRegion={currentRegion} style={styles.map}>      
+      </MapView>
        <Find>
        <Icon  
             name='crosshairs'
@@ -52,3 +79,17 @@ export default function Home({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  map: {
+      flex: 1
+  },
+
+  avatar:{
+      width: 54,
+      height: 54,
+      borderRadius: 4,
+      borderWidth: 4,
+      borderColor: '#FFF'
+  },
+});
