@@ -1,18 +1,15 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const app = express();         
+const bodyParser = require('body-parser');
+const port = 3333; //porta padrão
 const routes = require('./routes');
 
-const app = express();
 
-//Conexão com banco de dados
-mongoose.connect('mongodb+srv://lucas:lucas@cluster0-knrqk.mongodb.net/week10?retryWrites=true&w=majority',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+//configurando o body parser para pegar POSTS mais tarde
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-//Especificando o tipo de data que vai ser utilizado
-app.use(express.json());
 app.use(routes);
 
-
-app.listen(3333);
+//inicia o servidor
+app.listen(port);
