@@ -3,8 +3,7 @@ const knex = require('knex')(options);
 
 var Usuario = {
 
-    insertUser : function(user){
-        
+    async insertUser(user){
         try{
 
             knex('tb_usuario').insert(user).then(() => console.log("data inserted"))
@@ -39,7 +38,31 @@ var Usuario = {
             console.log(ex);
             throw ex;
         }
-    }
+    },
+
+    async loginUser(email,senha){
+        try{
+            var user = {};
+
+            await knex('tb_usuario')
+            .select()
+            .where({
+                DS_EMAIL: email,
+                DS_SENHA: senha
+            })
+            .then(function(res){
+                if(res.length >= 1)
+                    user = res;
+                else
+                    user = null;
+            });
+            
+            return user;
+        }
+        catch(ex){
+            throw ex;
+        }
+    },
 }
 
 module.exports = Usuario;

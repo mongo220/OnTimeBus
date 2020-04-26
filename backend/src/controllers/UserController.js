@@ -3,7 +3,6 @@ var sha1 = require('sha1');
 var moment = require('moment');
 var UserController = {
 
-
     async insertUser(req,res){
 
         try{
@@ -31,6 +30,30 @@ var UserController = {
         }
 
     },
+
+    async loginUser(req,res){
+        
+        var { DS_EMAIL,DS_SENHA } = req.body;
+        var data = {}
+        DS_SENHA = sha1(DS_SENHA);
+
+
+        var userData = await userModel.loginUser(DS_EMAIL,DS_SENHA);
+
+        if(userData){
+            data.status = 202;
+            data.msg = "Usuário autenticado!";
+            data.userData = userData;
+            return res.json({data});
+        }
+        else{
+            data.status = 405;
+            data.msg = "E-mail ou senha inválidos!"
+            return res.json({data});
+        }
+        
+
+    }
 }
 
 module.exports = UserController;
