@@ -1,6 +1,8 @@
 var userModel = require('../models/User');
+var UtilController = require('./UtilController');
 var sha1 = require('sha1');
 var moment = require('moment');
+
 var UserController = {
 
     async insertUser(req,res){
@@ -32,7 +34,7 @@ var UserController = {
     },
 
     async loginUser(req,res){
-        
+
         var { DS_EMAIL,DS_SENHA } = req.body;
         var data = {}
         DS_SENHA = sha1(DS_SENHA);
@@ -53,7 +55,13 @@ var UserController = {
         }
         
 
-    }
+    },
+
+    async recoverPass(req,res){
+        const { email } = req.body;
+        console.log(email);
+        
+    },
 }
 
 module.exports = UserController;
