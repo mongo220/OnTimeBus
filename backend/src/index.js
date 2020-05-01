@@ -3,12 +3,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3333; //porta padrão
 const routes = require('./routes');
-
+const cors = require('cors');
 
 //configurando o body parser para pegar POSTS mais tarde
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(cors());
 app.use(routes);
 
 //inicia o servidor

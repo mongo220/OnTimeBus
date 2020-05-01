@@ -34,7 +34,7 @@ var UserController = {
     },
 
     async loginUser(req,res){
-
+        console.log("Chegou");
         var { DS_EMAIL,DS_SENHA } = req.body;
         var data = {}
         DS_SENHA = sha1(DS_SENHA);

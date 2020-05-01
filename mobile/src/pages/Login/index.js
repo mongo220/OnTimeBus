@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import {ImageBackground} from 'react-native';
 
-
+import Loading from '../../components/Loading/index';
 import {
   View,
   Logo,
@@ -14,17 +13,38 @@ import {
   Button,
   Link,
   TextLink,
-  TextButton,
-  Line
+  TextButton
 } from './styles';
 
+import api from '../../services/index';
 
 export default function Login({ navigation }) {
 
   const background = require('../../assets/background.jpg');
 
-  function Login (){
+
+
+  const [loading,setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  
+
+ async function Login (){
+    console.log(email)
+  const DS_EMAIL = email;
+    const DS_SENHA = senha;
+
+
+    const userData = { DS_EMAIL, DS_SENHA };
+    console.log(userData);
+    //setLoading(true);
+
+    const response = await api.get('/user',userData);
+
+    console.log(response);
+
     navigation.navigate('Home');
+
   }
   useEffect(() => {
   }, []);
@@ -38,9 +58,9 @@ export default function Login({ navigation }) {
             <Div>
                 <Br/>
                 <Label>E-mail:</Label>
-                <Input/>
+                <Input value={email} onChangeText={setEmail}/>
                 <Label>Senha:</Label>
-                <Input/>            
+                <Input value={senha} onChangeText={setSenha} />            
                 <Br/>
                 <Button onPress={Login}>
                   <TextButton>Login</TextButton>
@@ -56,6 +76,7 @@ export default function Login({ navigation }) {
                   <TextLink>Criar conta</TextLink>
                 </Link>
             </Row>
+            <Loading loading={loading}/>
         </View>
       </ImageBackground>
 

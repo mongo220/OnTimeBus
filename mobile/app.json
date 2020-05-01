@@ -3,7 +3,6 @@
     "name": "OnTime Bus",
     "slug": "react-native-template",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
