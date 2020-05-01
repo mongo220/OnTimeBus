@@ -10,20 +10,21 @@ export const View = styled.View`
 `;
 
 
-export const Row = styled.View`
-    margin-left: 10%;
-    flex-direction: row;
-    justify-content: space-between;    
-    flex: 0;
-    width: 130px;
-    position: relative; 
-
-`;
 
 export const Div = styled.View`
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 15%;
+`;
+
+export const DivCad = styled.View`
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: -20px;
+    height: 80px;
+    width: 500px;
+    background-color:#6b59c2;
+    border-radius: 2;
 `;
 
 export const Br = styled.View`
@@ -99,23 +100,26 @@ export const TextButton = styled.Text`
     font-weight: bold;
 `;
 
-
-export const Link = styled.TouchableOpacity`
-    position: relative;
-    width: 150px;
-    height: 40px;
-    margin-left: 10%;
+export const TextCenter = styled.Text`
+    color:#ffffff;
+    font-family:Roboto;
+    font-size:20px;
+    padding-top:15px;
+    margin-left:29%;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #aad6a3;
+    font-weight: bold;
 `;
 
 export const TextLink = styled.Text`
     color:#ffffff;
     font-family:Roboto;
-    font-size:20px;
-    padding-top:4px;
+    font-size:16px;
+    padding-top:20px;
     text-decoration:none;
     text-shadow:0px 1px 0px #aad6a3;
     font-weight: bold;
-
+    margin-left: 30%;
 `;
 
 //#endregion

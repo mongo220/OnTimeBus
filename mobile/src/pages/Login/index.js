@@ -6,14 +6,14 @@ import {
   View,
   Logo,
   Div,
-  Row,
   Br,
   Label,
   Input,
   Button,
-  Link,
   TextLink,
-  TextButton
+  TextButton,
+  DivCad,
+  TextCenter
 } from './styles';
 
 import api from '../../services/index';
@@ -81,14 +81,10 @@ export default function Login({ navigation }) {
                   <Br/>
               </Div>
               <Br/>
-              <Row>
-                <Link>
-                    <TextLink>Esqueceu sua senha ?</TextLink>
-                  </Link>
-                  <Link>
-                    <TextLink>Criar conta</TextLink>
-                  </Link>
-              </Row>
+              <TextLink>Esqueceu sua senha ?</TextLink>
+              <DivCad>
+                <TextCenter>Criar Conta</TextCenter>
+              </DivCad>
               <Loading loading={loading}/>
           </View>
         </ImageBackground>

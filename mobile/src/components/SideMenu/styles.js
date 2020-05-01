@@ -42,7 +42,9 @@ export const Icon = styled.Text`
 export const Nav = styled.View`
   margin-left: 20px;
 `;
-
+export const TabButton = styled.TouchableOpacity`
+  
+`;
 export const Tab = styled.Text`
   border-color: #48126a;
   border-width: 0.5px;

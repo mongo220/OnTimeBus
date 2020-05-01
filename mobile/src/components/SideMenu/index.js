@@ -4,13 +4,19 @@ import { Container,
   Avatar,
   User, 
   Nav,
+  TabButton,
   Tab,
   SocialMedia
 } from './styles';
 import { Icon } from 'react-native-elements'
 
+
 export default function CustomDrawerContentComponent({navigation}) {  
- console.log(navigation);
+  
+  function LogOut() {
+    navigation.navigate('Login');
+  }
+  
   return(      
         <Container>
           <Top>
@@ -21,8 +27,11 @@ export default function CustomDrawerContentComponent({navigation}) {
             <Tab>Minha Conta</Tab>
             <Tab>Linhas Favoritas</Tab>
             <Tab>Histórico</Tab>
+
             <Tab>Solicitar assistência</Tab>
-            <Tab>Sair</Tab>
+            <TabButton onPress={LogOut}>
+              <Tab>Sair</Tab>
+            </TabButton>            
             <SocialMedia>
               <Icon  
                 name='facebook-square'
