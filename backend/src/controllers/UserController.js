@@ -34,26 +34,36 @@ var UserController = {
     },
 
     async loginUser(req,res){
-        console.log("Chegou");
-        var { DS_EMAIL,DS_SENHA } = req.body;
-        var data = {}
-        DS_SENHA = sha1(DS_SENHA);
-
-
-        var userData = await userModel.loginUser(DS_EMAIL,DS_SENHA);
-
-        if(userData){
-            data.status = 202;
-            data.msg = "Usuário autenticado!";
-            data.userData = userData;
-            return res.json({data});
-        }
-        else{
-            data.status = 405;
-            data.msg = "E-mail ou senha inválidos!"
-            return res.json({data});
-        }
         
+        try{
+            console.log("Chegou");
+            console.log(req.query);
+            var { DS_EMAIL,DS_SENHA } = req.query;
+            var data = {}
+            DS_SENHA = sha1(DS_SENHA);
+
+            var userData = await userModel.loginUser(DS_EMAIL,DS_SENHA);
+            console.log(userData);
+            if(userData){
+                data.status = 202;
+                data.valid = true;
+                data.msg = "Usuário autenticado!";
+                data.userData = userData;
+                return res.json({data});
+            }
+            else{
+                data.status = 405;
+                data.valid = false;
+                data.msg = "E-mail ou senha inválidos!"
+                return res.json({data});
+            }
+        }
+        catch(err){
+            data.status = 500;
+            data.valid = false;
+            data.msg = "Error:" + err;
+            return res.json({data});
+        }
 
     },
 
