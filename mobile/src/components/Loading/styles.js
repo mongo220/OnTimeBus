@@ -4,7 +4,7 @@ export const Background = styled.View`
   background-color: #E4E4E4;
   height: 100%;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.7;
 `;
 
 export const View = styled.View`
