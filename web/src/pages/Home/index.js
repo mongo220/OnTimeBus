@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
-import Footer from '../../components/Footer/index';
-
 export default function Login({ history }) {
   const [email, setEmail] = useState('');
 
@@ -19,6 +17,7 @@ export default function Login({ history }) {
   }
 
   return (
+
     <>
       <p>
         Ofereça <strong>spots</strong> para programadores e encontre <strong>talentos</strong> para sua empresa
@@ -36,8 +35,6 @@ export default function Login({ history }) {
 
         <button className="btn" type="submit">Entrar</button>
       </form>
-
-      <Footer/>
     </>
   )
 }

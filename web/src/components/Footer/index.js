@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <>
     <div className="footer">
-      <p>
+      <p className="copyright">
         Copyright © OnTimeBus - 2020
       </p>
     </div>
