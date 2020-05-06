@@ -1,26 +1,29 @@
 .header{
     position: relative;
     width: auto;
-    background-color: #6b59c2;
+    background-color: #6b59C4;
     height: 80px;
     margin-top: 0px;
     margin-left: 0px;
 }
 
-.name{
-    position: absolute;  
-    margin-top: 20px;
-    margin-left: 10px;
-    padding-bottom: 10px;
+.SideMenu{
     font-weight: bold;
-    font-size: 32px;
-    color: aliceblue;
+    font-size: large;
+    position: relative;
+    margin-left: 73%;
 }
 
+.font{
+    font-weight: bold;
+    font-size: large;
+    color:#FFF !important;
+
+}
+.active, .font:hover {
+    color: rgb(0, 0, 0) !important;
+  }
 .logo{
-    position: absolute;
-    margin-left: 180px;
-    margin-top: 15px;
     width: 50px;
     height: 50px;
     background-image: '../../assets/icon.png';
