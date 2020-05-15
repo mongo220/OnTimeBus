@@ -27,6 +27,7 @@ import SectionCompletedExamples from "./Sections/SectionCompletedExamples.js";
 import SectionLogin from "./Sections/SectionLogin.js";
 import SectionExamples from "./Sections/SectionExamples.js";
 import SectionDownload from "./Sections/SectionDownload.js";
+import ListItem from "@material-ui/core/ListItem";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
 
@@ -35,11 +36,22 @@ const useStyles = makeStyles(styles);
 export default function Components(props) {
   const classes = useStyles();
   const { ...rest } = props;
+  const a = <div class=""><Button color="red"></Button></div>
+  const sobre = <ListItem className={classes.listItem}>
+                  <Button
+                    color="transparent"
+                    href="../sobre/Sobre.js"
+                    className={classes.navLink}
+                  >
+                  Sobre
+                  </Button>
+                </ListItem>
   return (
     <div>
       <Header
         brand="OnTimeBus"
         rightLinks={<HeaderLinks />}
+        leftLinks={sobre}
         fixed
         color="transparent"
         changeColorOnScroll={{
@@ -64,25 +76,7 @@ export default function Components(props) {
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionBasics />
-        <SectionNavbars />
-        <SectionTabs />
-        <SectionPills />
-        <SectionNotifications />
-        <SectionTypography />
-        <SectionJavascript />
-        <SectionCarousel />
-        <SectionCompletedExamples />
-        <SectionLogin />
-        <GridItem md={12} className={classes.textCenter}>
-          <Link to={"/login-page"} className={classes.link}>
-            <Button color="primary" size="lg" simple>
-              View Login Page
-            </Button>
-          </Link>
-        </GridItem>
-        <SectionExamples />
-        <SectionDownload />
+        
       </div>
       <Footer />
     </div>
