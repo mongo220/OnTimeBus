@@ -32,14 +32,14 @@ export default function LandingPage(props) {
   return (
     <div>
       <Header
-        color="transparent"
+        color="black"
         routes={dashboardRoutes}
         brand="OnTimeBus"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
           height: 400,
-          color: "white"
+          color: "black"
         }}
         {...rest}
       />

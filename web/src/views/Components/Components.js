@@ -29,6 +29,8 @@ import SectionExamples from "./Sections/SectionExamples.js";
 import SectionDownload from "./Sections/SectionDownload.js";
 import ListItem from "@material-ui/core/ListItem";
 
+import foto1 from "assets/img/icon.png";
+
 import styles from "assets/jss/material-kit-react/views/components.js";
 
 const useStyles = makeStyles(styles);
@@ -38,14 +40,14 @@ export default function Components(props) {
   const { ...rest } = props;
   const a = <div class=""><Button color="red"></Button></div>
   const sobre = <ListItem className={classes.listItem}>
-                  <Button
-                    color="transparent"
-                    href="../sobre/Sobre.js"
-                    className={classes.navLink}
-                  >
-                  Sobre
+    <Button
+      color="transparent"
+      href="../sobre/Sobre.js"
+      className={classes.navLink}
+    >
+      Sobre
                   </Button>
-                </ListItem>
+  </ListItem>
   return (
     <div>
       <Header
@@ -53,32 +55,54 @@ export default function Components(props) {
         rightLinks={<HeaderLinks />}
         leftLinks={sobre}
         fixed
-        color="transparent"
+        color="dark"
         changeColorOnScroll={{
           height: 400,
           color: "white"
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/bg4.jpg")}>
+      <Parallax image={require("assets/img/bg-bus.jpg")}>
         <div className={classes.container}>
           <GridContainer>
-            <GridItem>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>Material Kit React.</h1>
-                <h3 className={classes.subtitle}>
-                  A Badass Material-UI Kit based on Material Design.
-                </h3>
+            <GridItem xs={12} sm={2}>
+              <div class="row">
+                <div class="col-lg-10">
+                  <div className={classes.brand}>
+                    <h1 className={classes.title}>OnTimeBus</h1>
+                  </div>
+                </div>
               </div>
+            </GridItem>
+            <GridItem xs={12} sm={2}>
+            </GridItem>
+            <GridItem xs={12} sm={2}>
+            </GridItem>
+            <GridItem xs={12} sm={2}>
+            </GridItem>
+            <GridItem xs={12} sm={1}>
+            </GridItem>
+            <GridItem xs={15} sm={2}>
+              <img
+                src={foto1}
+                alt="..."
+                style={{ width: "150px" }, { height: "150px" }}
+              />
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        
+        <div className={classes.container}>
+          <div>
+            <div>
+              <h2></h2>
+            </div>
+          </div>
+        </div>
       </div>
-      <Footer />
+
     </div>
   );
 }

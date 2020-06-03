@@ -14,14 +14,15 @@ import GridItem from "../../components/Grid/GridItem.js";
 import Button from "../../components/CustomButtons/Button.js";
 import Parallax from "../../components/Parallax/Parallax.js";
 import image from "assets/img/faces/avatar.jpg";
-import foto1 from "assets/img/faces/foto1.jpeg";
-import foto2 from "assets/img/faces/foto2.jpeg";
+import foto1 from "assets/img/faces/fotos2/foto1.jpeg";
+import foto2 from "assets/img/faces/fotos2/foto2.jpeg";
 import foto3 from "assets/img/faces/foto3.jpeg";
-import foto4 from "assets/img/faces/foto4.jpeg";
-import foto5 from "assets/img/faces/foto5.jpeg";
-import foto6 from "assets/img/faces/foto6.jpeg";
-import foto7 from "assets/img/faces/foto7.jpg";
-import foto8 from "assets/img/faces/foto8.jpeg";
+import foto4 from "assets/img/faces/fotos2/foto4.jpeg";
+import foto5 from "assets/img/faces/fotos2/foto5.jpeg";
+import foto6 from "assets/img/faces/fotos2/foto6.jpeg";
+import foto7 from "assets/img/faces/fotos2/foto7.jpg";
+import foto8 from "assets/img/faces/fotos2/foto8.jpeg";
+import foto_logo from "assets/img/icon.png";
 // sections for this page
 import HeaderLinks from "../../components/Header/HeaderLinks.js";
 import ListItem from "@material-ui/core/ListItem";
@@ -54,23 +55,39 @@ export default function Components(props) {
         rightLinks={<HeaderLinks />}
         leftLinks={sobre}
         fixed
-        color="transparent"
+        color="dark"
         changeColorOnScroll={{
           height: 400,
           color: "white"
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/bg4.jpg")}>
+      <Parallax image={require("assets/img/bg-bus.jpg")}>
         <div className={classes.container}>
           <GridContainer>
-            <GridItem>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>Material Kit React.</h1>
-                <h3 className={classes.subtitle}>
-                  A Badass Material-UI Kit based on Material Design.
-                </h3>
+            <GridItem xs={12} sm={2}>
+              <div class="row">
+                <div class="col-lg-10">
+                  <div className={classes.brand}>
+                    <h1 className={classes.title}>OnTimeBus</h1>
+                  </div>
+                </div>
               </div>
+            </GridItem>
+            <GridItem xs={12} sm={2}>
+            </GridItem>
+            <GridItem xs={12} sm={2}>
+            </GridItem>
+            <GridItem xs={12} sm={2}>
+            </GridItem>
+            <GridItem xs={12} sm={1}>
+            </GridItem>
+            <GridItem xs={15} sm={2}>
+              <img
+                src={foto_logo}
+                alt="..."
+                style={{ width: "150px" }, { height: "150px" }}
+              />
             </GridItem>
           </GridContainer>
         </div>
@@ -89,7 +106,7 @@ export default function Components(props) {
                   src={foto1}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
               <GridItem xs={12} sm={2} className={classesImages.marginLeft}>
@@ -97,7 +114,7 @@ export default function Components(props) {
                   src={foto2}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
               <GridItem xs={12} sm={2} className={classesImages.marginLeft}>
@@ -105,7 +122,7 @@ export default function Components(props) {
                   src={foto3}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
               <GridItem xs={12} sm={2} className={classesImages.marginLeft}>
@@ -113,7 +130,7 @@ export default function Components(props) {
                   src={foto4}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
             </GridContainer>
@@ -124,7 +141,7 @@ export default function Components(props) {
                   src={foto5}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
               <GridItem xs={12} sm={2} className={classesImages.marginLeft}>
@@ -132,7 +149,7 @@ export default function Components(props) {
                   src={foto6}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
               <GridItem xs={12} sm={2} className={classesImages.marginLeft}>
@@ -140,7 +157,7 @@ export default function Components(props) {
                   src={foto7}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
               <GridItem xs={12} sm={2} className={classesImages.marginLeft}>
@@ -148,7 +165,7 @@ export default function Components(props) {
                   src={foto8}
                   alt="..."
                   className={classesImages.imgRoundedCircle + " " + classesImages.imgFluid}
-                  style={{width: "150px"}, {height: "150px"}}
+                  style={{ width: "150px" }, { height: "150px" }}
                 />
               </GridItem>
             </GridContainer>
@@ -156,7 +173,6 @@ export default function Components(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

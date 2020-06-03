@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Input from "@material-ui/core/Input";
 // react components for routing our app without refresh
 
@@ -41,20 +41,20 @@ const useStyles = makeStyles(styles);
 export default function HeaderLinks(props) {
   const classes = useStyles();
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
-  setTimeout(function() {
+  setTimeout(function () {
     setCardAnimation("");
   }, 700);
 
   //#region  style modal
   const [email, setEmail] = useState('as');
   const [senha, setSenha] = useState();
-  
+
   const teste = () => {
     fetch('http://localhost:3000/users', {
-      headers : { 
+      headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-       }
+      }
 
     })
       .then(response => response.json())
@@ -205,7 +205,7 @@ export default function HeaderLinks(props) {
                     /> */}
                     Email:
                     <input type="text" onChange={event => setEmail(event.target.value)} />
-                    <br/>
+                    <br />
                     {/* <CustomInput
                       labelText="Senha..."
                       id="pass"
@@ -230,11 +230,11 @@ export default function HeaderLinks(props) {
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button simple color="primary" size="lg">>
-                      Login
+                    Login
                     </Button>
                   </CardFooter>
                   <Button simple color="primary" size="lg">
-                      Esqueceu a senha ?
+                    Esqueceu a senha ?
                   </Button>
                   <Button simple color="primary" size="lg">
                     Ainda não tem conta ? Saiba mais
@@ -248,6 +248,6 @@ export default function HeaderLinks(props) {
       </Modal>
     </List>
 
-    
+
   );
 }
