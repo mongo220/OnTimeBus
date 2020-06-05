@@ -1,6 +1,5 @@
 /*eslint-disable*/
-import React, { useState } from "react";
-import Input from "@material-ui/core/Input";
+import React from "react";
 // react components for routing our app without refresh
 
 
@@ -46,21 +45,7 @@ export default function HeaderLinks(props) {
   }, 700);
 
   //#region  style modal
-  const [email, setEmail] = useState('as');
-  const [senha, setSenha] = useState();
 
-  const teste = () => {
-    fetch('http://localhost:3000/users', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-
-    })
-      .then(response => response.json())
-      .then(users => console.warn(users))
-  }
-  console.log(teste());
   const styles = makeStyles((theme) => ({
     paper: {
       backgroundColor: theme.palette.background.paper,
@@ -115,57 +100,6 @@ export default function HeaderLinks(props) {
           <PermIdentityIcon className={classes.icons} /> Login
         </Button>
       </ListItem>
-      {/* <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
-        </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-facebook"
-          title="Follow us on facebook"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
-          </Button>
-        </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-tooltip"
-          title="Follow us on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
-        </Tooltip>
-      </ListItem> */}
 
       <Modal
         aria-labelledby="transition-modal-title"
@@ -187,13 +121,12 @@ export default function HeaderLinks(props) {
                     <h4>Login</h4>
                   </CardHeader>
                   <CardBody>
-                    {/* <CustomInput
+                    <CustomInput
                       labelText="Email..."
                       id="email"
                       formControlProps={{
                         fullWidth: true
                       }}
-                      onChangeText={() => setEmail($('#email').val())}
                       inputProps={{
                         type: "email",
                         endAdornment: (
@@ -202,17 +135,13 @@ export default function HeaderLinks(props) {
                           </InputAdornment>
                         )
                       }}
-                    /> */}
-                    Email:
-                    <input type="text" onChange={event => setEmail(event.target.value)} />
-                    <br />
-                    {/* <CustomInput
+                    />
+                    <CustomInput
                       labelText="Senha..."
                       id="pass"
                       formControlProps={{
                         fullWidth: true
                       }}
-                      onChangeText={() => this.setState({ senha: this.state.senha})}
                       inputProps={{
                         type: "password",
                         endAdornment: (
@@ -224,22 +153,19 @@ export default function HeaderLinks(props) {
                         ),
                         autoComplete: "off"
                       }}
-                    /> */}
-                    Senha:
-                    <input type="text" onChange={event => setSenha(event.target.value)} />
+                    />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">>
-                    Login
+                    <Button simple color="primary" size="lg">
+                      Login
                     </Button>
                   </CardFooter>
                   <Button simple color="primary" size="lg">
                     Esqueceu a senha ?
-                  </Button>
+                    </Button>
                   <Button simple color="primary" size="lg">
                     Ainda não tem conta ? Saiba mais
-                  </Button>
-                  {teste}
+                    </Button>
                 </form>
               </Card>
             </GridItem>
